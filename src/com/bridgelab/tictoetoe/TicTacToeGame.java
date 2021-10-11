@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class TicTacToeGame {
     static  Scanner scan = new Scanner(System.in); // create scanner object class
+    static char[] bord = new char[10]; // bord size 10
     public static char playerSymbol;
     public static char computerPlayerSymbol;
-    static char[] bord = new char[10]; // bord size 10
+
 
     public static void main(String[] args) {
         createBoard(); // calling method
@@ -14,12 +15,12 @@ public class TicTacToeGame {
 
         Scanner scan = new Scanner(System.in); // creat Scanner object
         int choice = scan.nextInt();
-
-        TicTacToeGame.allowPlayer(choice);
-        TicTacToeGame.showBoard();
+        createBoard();
+        allowPlayer(choice);
+        showBoard();
         choicesLocation();
+        move();
         scan.close();
-
 
     }
      /*
@@ -32,6 +33,9 @@ public class TicTacToeGame {
              bord[index] = ' ';
          }
      }
+     /* create amethod to allow player
+        input x or o and call from main
+      */
 
        public static void  allowPlayer(int choice) {
            switch (choice) {
@@ -51,13 +55,24 @@ public class TicTacToeGame {
                }
            }
        }
+       /* write amthod showBoard() {
+           display current board
+        */
        public static void showBoard() {
+           System.out.println("Tic Tac Toe Board");
            System.out.println("Board Display\n");
-           System.out.println(" | " + bord[1] + " | " +bord[2] + " | " +bord[3] + " |\n");
-           System.out.println(" | " + bord[4] + " | " +bord[5] + " | " +bord[6] + " |\n");
-           System.out.println(" | " + bord[7] + " | " +bord[8] + " | " +bord[9] + " |\n");
+           System.out.println(" | " + bord[1] + " | " +bord[2] + " | " +bord[3] + " |");
+           System.out.println(" |---------| ");
+           System.out.println(" | " + bord[4] + " | " +bord[5] + " | " +bord[6] + " |");
+           System.out.println("|----------");
+           System.out.println(" | " + bord[7] + " | " +bord[8] + " | " +bord[9] + " |");
+
 
        }
+       /* Ability for use to make
+        a move to a desired
+        location in board
+        */
        static void choicesLocation() {
            System.out.println("Enter box index(1-9) to set your game move" );
            int Moveuser = scan.nextInt();
@@ -111,7 +126,26 @@ public class TicTacToeGame {
                    System.out.println("Invalid Move");
            }
             showBoard();
-       }
+
+       }    /*
+            Ability to check for the
+            free space before
+            making the desired
+            */
+      static void move() {
+          boolean played = false;
+          while (!played) {
+              int playMove = (int) (Math.random() * 10) % 9 + 1;
+              if (playMove >0 && playMove < 10) {
+                  if (bord[playMove] == ' ') {
+                      bord[playMove] = computerPlayerSymbol;
+                      played = true;
+
+                  }
+              }
+          }
+          showBoard();
+      }
 
 
 
