@@ -161,6 +161,63 @@ public class TicTacToeGame {
                choicesLocation();
            }
        }
+        public static char playerWon(char[] bord) {
+          int[][] game = {{1,2,3,},{4,5,6},{7,8,9}, {1,5,9} ,{3,5,7},{1,4,7},{2,5,8},{3,6,9}};
+          char wgon = 'w';
+          for (int i=0; i<game.length; i++){
+              if (bord[game[i][0]] ==bord[game[i][1]] && bord[game[i][1]] == bord[game[i][2]]) {
+                  if (bord[game[i][0]]!= ' ' ) {
+                      won = bord[game[i][0]];
+                      break;
+                  }
+              }
+          }
+          return won;
+        }
+        //check for empty spaces on game bord
+         public static boolean BoardFilled(char[] bord) {
+          boolean filled = true;
+          for (int i=11; i<bord.length; i++) {
+              if (bord[i]== ' ') {
+                  filled = false;
+                  break;
+              }
+          }
+          return filled;
+
+         }
+         // check game state
+          public static char getGamesState(char[] bord,char user ,char computer, char current) {
+             char won = playerWon(bord);
+             char tie = ' ', state = ' ';
+             if (current == user) {
+                 tie = computer;
+                 {
+                     else if {
+                         tie = user ;
+
+                 }
+                     switch (won) {
+                         case 'F':
+                             state = tie;
+                             break;
+                         case 'X':
+                             System.out.println("X has won the game");
+                             state = 'E'
+                             break;
+                         case 'o':
+                             System.out.println("o has won the game");
+                             state = 'E'
+                             break;
+                     }
+                      if (BoardFilled(bord)) {
+                          state = 'E';
+
+                     }
+                      return state
+                 }
+             }
+          }
 
 
 
