@@ -3,6 +3,7 @@ package com.bridgelab.tictoetoe;
 import java.util.Scanner;
 
 public class TicTacToeGame {
+    static  Scanner scan = new Scanner(System.in); // create scanner object class
     public static char playerSymbol;
     public static char computerPlayerSymbol;
     static char[] bord = new char[10]; // bord size 10
@@ -16,24 +17,22 @@ public class TicTacToeGame {
 
         TicTacToeGame.allowPlayer(choice);
         TicTacToeGame.showBoard();
-
+        choicesLocation();
         scan.close();
+
 
     }
      /*
-        why this method use:
+        Method use :
         in method data is character
-        And using for loop to iteration from 1 to 9 by ignoring 0
+        using for loop to iteration from 1 to 9
       */
      public static void createBoard() {
          for (int index = 1; index < bord.length; index++){
              bord[index] = ' ';
          }
      }
-      /*
-       define method to allow the player in tictactoe game and by using switch
-       you want to choice you can directly choice it
-       */
+
        public static void  allowPlayer(int choice) {
            switch (choice) {
                case 1: {
@@ -58,6 +57,60 @@ public class TicTacToeGame {
            System.out.println(" | " + bord[4] + " | " +bord[5] + " | " +bord[6] + " |\n");
            System.out.println(" | " + bord[7] + " | " +bord[8] + " | " +bord[9] + " |\n");
 
+       }
+       static void choicesLocation() {
+           System.out.println("Enter box index(1-9) to set your game move" );
+           int Moveuser = scan.nextInt();
+           switch (Moveuser) {
+               case 1:
+                    if (bord[1] == ' ') {
+                        bord[1] = playerSymbol;
+                    }
+                    break;
+               case 2:
+                   if (bord[2] == ' ') {
+                       bord[2] = playerSymbol;
+                   }
+                   break;
+               case 3:
+                    if (bord[3] == ' ') {
+                        bord[3] = playerSymbol;
+                    }
+                    break;
+               case 4:
+                   if (bord[4] == ' ') {
+                       bord[4] = playerSymbol;
+                   }
+                   break;
+               case 5:
+                   if (bord[5] == ' ') {
+                       bord[5] = playerSymbol;
+                   }
+                   break;
+               case 6:
+                   if (bord[6] == ' ') {
+                       bord[6] = playerSymbol;
+                   }
+                   break;
+               case 7:
+                   if (bord[7] == ' ') {
+                       bord[7] = playerSymbol;
+                   }
+                   break;
+               case 8:
+                   if (bord[8] == ' ') {
+                       bord[8] = playerSymbol;
+                   }
+                   break;
+               case 9:
+                   if (bord[9] == ' ') {
+                       bord[9] = playerSymbol;
+                   }
+                   break;
+               default:
+                   System.out.println("Invalid Move");
+           }
+            showBoard();
        }
 
 
