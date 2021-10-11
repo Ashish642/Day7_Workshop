@@ -1,5 +1,7 @@
 package com.bridgelab.tictoetoe;
+
 import java.util.Scanner;
+
 public class TicTacToeGame {
     public static char playerSymbol;
     public static char computerPlayerSymbol;
@@ -7,12 +9,14 @@ public class TicTacToeGame {
 
     public static void main(String[] args) {
         createBoard(); // calling method
-        System.out.println("Select the Letter which you want\n Press 1. Choose x \n Press2 . Choose0\n\nEnter your Choice : " );
+        System.out.println("Select the Letter  you want\n Press 1 . Choose x \n Press 2 . Choose o \n  \nEnter your Choice : "   );
 
         Scanner scan = new Scanner(System.in); // creat Scanner object
         int choice = scan.nextInt();
 
         TicTacToeGame.allowPlayer(choice);
+        TicTacToeGame.showBoard();
+
         scan.close();
 
     }
@@ -36,12 +40,24 @@ public class TicTacToeGame {
                    playerSymbol = 'x';
                    computerPlayerSymbol = 'o';
                    break;
+               }
+               case 2: {
+                   playerSymbol = '0';
+                   computerPlayerSymbol = 'x';
+                   break;
 
                } default:{
                    System.out.println("Invalid choice so please retry again");
                    return;
                }
            }
+       }
+       public static void showBoard() {
+           System.out.println("Board Display\n");
+           System.out.println(" | " + bord[1] + " | " +bord[2] + " | " +bord[3] + " |\n");
+           System.out.println(" | " + bord[4] + " | " +bord[5] + " | " +bord[6] + " |\n");
+           System.out.println(" | " + bord[7] + " | " +bord[8] + " | " +bord[9] + " |\n");
+
        }
 
 
