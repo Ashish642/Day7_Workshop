@@ -17,9 +17,7 @@ public class TicTacToeGame {
         int choice = scan.nextInt();
         createBoard();
         allowPlayer(choice);
-        showBoard();
-        choicesLocation();
-        move();
+        choiceToss();
         scan.close();
 
     }
@@ -146,6 +144,23 @@ public class TicTacToeGame {
           }
           showBoard();
       }
+       static void choiceToss() {
+          int win = (int) ( Math.random() * 10 ) %2;
+           System.out.println("Choosen \n 0. Heads\n 1. Tails\n Enter your choice [0-1");
+           Scanner sc = new Scanner(System.in);
+           int tossChoices = sc.nextInt();
+           if (tossChoices == win) {
+               System.out.println("Plater won the toss, enter your first move");
+               choicesLocation();
+               move();
+
+           }
+           else {
+               System.out.println("Computer won the toss, enter the firstmove");
+               move();
+               choicesLocation();
+           }
+       }
 
 
 
